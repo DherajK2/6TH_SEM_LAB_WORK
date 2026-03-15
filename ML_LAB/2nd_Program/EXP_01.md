@@ -30,17 +30,24 @@ It starts with the **most specific hypothesis** and gradually **generalizes it**
 
 ---
 
-## Algorithm
+## Algorithm: Find-S
 
-**Find-S Algorithm**
+**Input:** Positive instances in the Training dataset  
+**Output:** Hypothesis `h`
 
-1. Initialize hypothesis **h** to the most specific hypothesis.
-2. For each training example **x** in the dataset  
-3. If **x** is a positive example  
-4. For each attribute constraint **ai** in **h**  
-5. If **ai ≠ xi**, then set **ai = ?**  
-6. Ignore negative examples.
-7. Output the final hypothesis **h**.
+1. Initialize 'h' to the most specific hypothesis.  
+   h = <Φ, Φ, ..., Φ>
+
+2. Generalize the initial hypothesis for the first positive instance  
+   (Since 'h' is more specific.)
+
+3. For each subsequent instance:  
+   - If it is a positive instance:  
+     - Check for each attribute value in the instance with the hypothesis 'h'.  
+     - If the attribute value is the same as the hypothesis value, then do nothing.  
+     - Else if the attribute value is different than the hypothesis value, change it to '?' in 'h'.  
+   - Else if it is a negative instance:  
+     - Ignore it.
 
 ---
 
