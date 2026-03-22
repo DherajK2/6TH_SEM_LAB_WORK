@@ -154,41 +154,16 @@ print("\nKNN algorithm completed successfully!")
 
 ## Output
 
-### Output of File 1 – create_dataset.py
+### Screenshot 1
+<img src="https://raw.githubusercontent.com/DherajK2/6TH_SEM_LAB_WORK/main/ML_LAB/3rd_Program/EXP_03_ML_KNN_1.png" width="600"/>
 
-```
-Training Dataset:
-   Feature_X    Class
-0   0.375      Class1
-1   0.950      Class2
-2   0.732      Class2
-3   0.598      Class2
-...
+---
 
-Test Dataset:
-   Feature_X
-0   0.749
-1   0.669
-2   0.639
-...
-```
-
-
-### Output of File 2 – knn_algorithm.py
-
-```
-KNN Classification Results (k = 3 ):
---------------------------------------------------
-Test Point 1: X=0.749 -> Predicted: Class2
-Test Point 2: X=0.669 -> Predicted: Class2
-Test Point 3: X=0.639 -> Predicted: Class2
-Test Point 4: X=0.556 -> Predicted: Class2
-Test Point 5: X=0.650 -> Predicted: Class2
-...
-```
-
-
+### Screenshot 2
+<img src="https://raw.githubusercontent.com/DherajK2/6TH_SEM_LAB_WORK/main/ML_LAB/3rd_Program/EXP_03_ML_KNN_2.png" width="600"/>
 ***
+
+---
 
 ## Explanation
 
