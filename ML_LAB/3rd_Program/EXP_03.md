@@ -53,179 +53,6 @@ The **K-Nearest Neighbour (KNN)** algorithm is a **supervised machine learning a
 
 ***
 
-***
-
-# Source Code
-
-## File 1 – create_dataset.py
-
-This file creates a **CSV dataset** with random 1D points and their classes.
-
-```python
-import pandas as pd
-import numpy as np
-
-np.random.seed(42)
-
-# Generate 50 training points
-X_train = np.random.rand(50, 1)
-y_train = ["Class1" if x[^1_0] <= 0.5 else "Class2" for x in X_train]
-
-# Generate 20 test points
-X_test = np.random.rand(20, 1) + 0.5  # Test points mostly > 0.5
-
-# Training dataset
-train_data = {
-    "Feature_X": X_train.flatten(),
-    "Class": y_train
-}
-
-# Test dataset (without labels)
-test_data = {
-    "Feature_X": X_test.flatten()
-}
-
-# Save training data
-train_df = pd.DataFrame(train_data)
-train_df.to_csv("knn_training_data.csv", index=False)
-
-# Save test data
-test_df = pd.DataFrame(test_data)
-test_df.to_csv("knn_test_data.csv", index=False)
-
-print("Training Dataset:")
-print(train_df.head(10))
-print("\nTest Dataset:")
-print(test_df.head(10))
-print("\nCSV files created successfully!")
-```
-
-
-## File 2 – knn_algorithm.py
-
-This file reads CSV files and implements **KNN from scratch**.
-
-```python
-import pandas as pd
-import numpy as np
-
-# Read datasets
-train_df = pd.read_csv("knn_training_data.csv")
-test_df = pd.read_csv("knn_test_data.csv")
-
-X_train = train_df[["Feature_X"]].values
-y_train = train_df["Class"].values
-X_test = test_df[["Feature_X"]].values
-
-k = 3
-
-def euclidean_distance(point1, point2):
-    return np.sqrt(np.sum((point1 - point2)**2))
-
-print("KNN Classification Results (k =", k, "):")
-print("-" * 50)
-
-for i in range(len(X_test)):
-    test_point = X_test[i]
-    distances = []
-    
-    # Calculate distance to all training points
-    for j in range(len(X_train)):
-        dist = euclidean_distance(test_point, X_train[j])
-        distances.append((dist, y_train[j]))
-    
-    # Sort by distance
-    distances.sort()
-    
-    # Get k nearest neighbors
-    neighbors = distances[:k]
-    neighbor_classes = [neighbor[^1_1] for neighbor in neighbors]
-    
-    # Majority vote
-    prediction = max(set(neighbor_classes), key=neighbor_classes.count)
-    
-    print(f"Test Point {i+1}: X={test_point[^1_0]:.3f} -> Predicted: {prediction}")
-    
-print("\nKNN algorithm completed successfully!")
-```
-
-
-***
-
-## Output
-
-### Screenshot 1
-<img src="https://raw.githubusercontent.com/DherajK2/6TH_SEM_LAB_WORK/main/ML_LAB/3rd_Program/EXP_03_ML_KNN_1.png" width="600"/>
-
----
-
-### Screenshot 2
-<img src="https://raw.githubusercontent.com/DherajK2/6TH_SEM_LAB_WORK/main/ML_LAB/3rd_Program/EXP_03_ML_KNN_2.png" width="600"/>
-***
-
----
-
-## Explanation
-
-- Dataset contains **1D feature (Feature_X)** and **binary classes (Class1, Class2)**.
-- **Training data**: 50 points used to find nearest neighbors.
-- **Test data**: 20 new points classified using KNN.
-- **Distance metric**: Euclidean distance between 1D points.
-- **k=3**: Each test point classified based on 3 nearest training neighbors.
-- **Majority voting**: Class with highest frequency among neighbors wins.
-- Points closer to 0.5 boundary may get mixed predictions.
-
-***
-
-## Viva Questions
-
-1. **What is the KNN Algorithm?**
-Supervised learning algorithm that classifies based on k nearest neighbors using distance metric.
-2. **What type of learning does KNN perform?**
-Supervised learning (classification/regression).
-3. **What does 'k' represent in KNN?**
-Number of nearest neighbors to consider for classification.
-4. **What distance metric is commonly used in KNN?**
-Euclidean distance.
-5. **What happens when k=1?**
-Classifies based on single nearest neighbor (may overfit).
-6. **What happens when k is very large?**
-May underfit as decision depends on too many neighbors.
-7. **Does KNN build a model during training?**
-No, it's a lazy learner that stores all training data.
-8. **What is the main advantage of KNN?**
-Simple, intuitive, and works with any distance metric.
-9. **What is the main limitation of KNN?**
-Computationally expensive for large datasets.
-10. **How does KNN handle classification?**
-Majority voting among k nearest neighbors' classes.
-<span style="display:none">[^1_10][^1_2][^1_3][^1_4][^1_5][^1_6][^1_7][^1_8][^1_9]</span>
-
-<div align="center">⁂</div>
-
-[^1_1]: https://www.appliedaicourse.com/blog/knn-algorithm-in-machine-learning/
-
-[^1_2]: https://www.reddit.com/r/MLQuestions/comments/18a9f5f/how_does_the_knn_classifier_actually_work/
-
-[^1_3]: https://roboticsbiz.com/pros-and-cons-of-the-k-nearest-neighbors-knn-algorithm/
-
-[^1_4]: http://becbapatla.ac.in/wp-content/uploads/20ECL501-SOC3-MACHINE-LEARNING-LAB-MANUAL.pdf
-
-[^1_5]: https://arize.com/blog-course/knn-algorithm-k-nearest-neighbor/
-
-[^1_6]: https://app.myeducator.com/reader/web/1421a/11/q07a0/
-
-[^1_7]: https://www.scribd.com/document/936051719/ML-Lab-Manual-Exp-1-to-10
-
-[^1_8]: https://www.pinecone.io/learn/k-nearest-neighbor/
-
-[^1_9]: https://www.tencentcloud.com/techpedia/101813
-
-[^1_10]: https://www.scribd.com/document/949660493/Machine-Learning-Lab-Manual
-
-
----
-
 # Machine Learning Lab – Experiment 3: K-Nearest Neighbour (KNN)
 
 
@@ -412,6 +239,20 @@ X1: 0.375 -> Class 1
 [Scatter plot showing classification for different k values]
 ```
 
+***
+
+## Output
+
+### Screenshot 1
+<img src="https://raw.githubusercontent.com/DherajK2/6TH_SEM_LAB_WORK/main/ML_LAB/3rd_Program/EXP_03_ML_KNN_1.png" width="600"/>
+
+---
+
+### Screenshot 2
+<img src="https://raw.githubusercontent.com/DherajK2/6TH_SEM_LAB_WORK/main/ML_LAB/3rd_Program/EXP_03_ML_KNN_2.png" width="600"/>
+***
+
+---
 
 ***
 
