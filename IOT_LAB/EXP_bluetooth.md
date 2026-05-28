@@ -144,7 +144,6 @@ void loop() {
     - Connect to it and write `"1"` to turn the LED **ON**, and `"0"` to turn it **OFF**.
 
 
-```md id="n9s5bt"
 ## BLE Mobile App Control Using nRF Connect
 
 - Install **nRF Connect for Mobile** from:
@@ -176,7 +175,6 @@ void loop() {
 ![BLE Mobile App Control](images/ble_mobile_control_full.png)
 
 ---
-```
 
 ***
 
