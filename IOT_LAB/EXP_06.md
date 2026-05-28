@@ -174,6 +174,53 @@ String apiKey = "YOUR_WRITE_API_KEY";
 
 ![API Key Setup](images/thingspeak_api_key.png)
 
+```md
+## Final Output
+
+### Serial Monitor Output
+
+- The Serial Monitor displays temperature and humidity readings continuously.
+- Arduino successfully connects to ThingSpeak and uploads sensor data.
+
+![Serial Monitor Output](images/thingspeak_serial_output.png)
+
+---
+
+### ThingSpeak Dashboard Output
+
+- Temperature and humidity values are displayed using:
+  - Gauge widgets
+  - Graph charts
+- The values update automatically whenever new data is sent from Arduino.
+
+![ThingSpeak Dashboard](images/thingspeak_dashboard_output.png)
+
+---
+
+### Observed Readings
+
+- Temperature ≈ 31°C
+- Humidity ≈ 55%
+
+---
+
+### Observation
+
+- Sensor readings were successfully transmitted from Arduino to ThingSpeak.
+- Gauge widgets displayed live values.
+- Graph charts plotted temperature and humidity variations over time.
+
+---
+
+### Result
+
+- Successfully measured temperature and humidity using the DHT11 sensor.
+- Uploaded live sensor data to ThingSpeak using Wi-Fi.
+- Displayed the readings using gauges and charts on the ThingSpeak dashboard.
+
+---
+```
+
 ---
 
 ```
