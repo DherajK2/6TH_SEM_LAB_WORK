@@ -182,7 +182,7 @@ String apiKey = "YOUR_WRITE_API_KEY";
 - The Serial Monitor displays temperature and humidity readings continuously.
 - Arduino successfully connects to ThingSpeak and uploads sensor data.
 
-![Serial Monitor Output](images/thingspeak_serial_output.png)
+
 
 ---
 
