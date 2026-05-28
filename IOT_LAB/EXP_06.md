@@ -119,7 +119,7 @@ ThingSpeak supports updating multiple fields in one request, and free ThingSpeak
 5. Upload the code and open the **Serial Monitor** at **9600 baud**.
 6. Observe the temperature and humidity values, check whether data is sent to ThingSpeak, and monitor alert messages when readings exceed the threshold.[^4][^2]
 
-````md
+
 ### ThingSpeak Channel Setup
 
 #### Step 1: Create a New Channel
@@ -166,9 +166,9 @@ ThingSpeak supports updating multiple fields in one request, and free ThingSpeak
 - Open the **API Keys** tab.
 - Copy the **WRITE API KEY**.
 - Paste this key inside the Arduino code in:
-```cpp
+
 String apiKey = "YOUR_WRITE_API_KEY";
-````
+
 
 * The **Write API Key** is used to send sensor data from Arduino to ThingSpeak.
 
