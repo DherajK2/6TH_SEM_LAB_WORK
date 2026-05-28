@@ -21,8 +21,8 @@ This experiment does not require an external circuit because the Wi‑Fi module 
 #include <WiFiS3.h>
 
 // Wi-Fi credentials
-const char* ssid = "Dheraj";        // Replace with actual WiFi name
-const char* password = "123456dk0"; // Replace with actual WiFi password
+const char* ssid = "Your Wifi Name(Hotspot)";        // Replace with actual WiFi name
+const char* password = "Your Wifi Password"; // Replace with actual WiFi password
 
 void setup() {
   Serial.begin(115200);
