@@ -174,7 +174,7 @@ String apiKey = "YOUR_WRITE_API_KEY";
 
 ![API Key Setup](images/thingspeak_api_key.png)
 
-```md
+
 ## Final Output
 
 ### Serial Monitor Output
@@ -219,12 +219,11 @@ String apiKey = "YOUR_WRITE_API_KEY";
 - Displayed the readings using gauges and charts on the ThingSpeak dashboard.
 
 ---
-```
+
 
 ---
 
-```
-```
+
 
 
 ## Output
