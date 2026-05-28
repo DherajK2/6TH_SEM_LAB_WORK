@@ -119,6 +119,67 @@ ThingSpeak supports updating multiple fields in one request, and free ThingSpeak
 5. Upload the code and open the **Serial Monitor** at **9600 baud**.
 6. Observe the temperature and humidity values, check whether data is sent to ThingSpeak, and monitor alert messages when readings exceed the threshold.[^4][^2]
 
+````md
+### ThingSpeak Channel Setup
+
+#### Step 1: Create a New Channel
+- Open ThingSpeak and click on **“New Channel”**.
+- Enter the channel name and description.
+
+![Create Channel](images/thingspeak_create_channel.png)
+
+---
+
+#### Step 2: Add Field Names
+- Tick the required fields first.
+- Enter:
+  - **Field 1 → Temperature**
+  - **Field 2 → Humidity**
+- Leave remaining fields empty.
+- Click **“Save Channel”**.
+
+![Field Setup](images/thingspeak_field_setup.png)
+
+---
+
+#### Step 3: Open Private View and Add Widgets
+- Open the created channel.
+- Stay in **Private View**.
+- Click on **“Add Widgets”** to create visualization widgets.
+
+![Private View](images/thingspeak_private_view.png)
+
+---
+
+#### Step 4: Create Gauge Widgets
+- Select the **Gauge** widget.
+- Create one widget for:
+  - **Temperature (Field 1)**
+- Create another widget for:
+  - **Humidity (Field 2)**
+
+![Gauge Widget Setup](images/thingspeak_gauge_setup.png)
+
+---
+
+#### Step 5: Copy the Write API Key
+- Open the **API Keys** tab.
+- Copy the **WRITE API KEY**.
+- Paste this key inside the Arduino code in:
+```cpp
+String apiKey = "YOUR_WRITE_API_KEY";
+````
+
+* The **Write API Key** is used to send sensor data from Arduino to ThingSpeak.
+
+![API Key Setup](images/thingspeak_api_key.png)
+
+---
+
+```
+```
+
+
 ## Output
 
 **Serial Monitor Example:**
