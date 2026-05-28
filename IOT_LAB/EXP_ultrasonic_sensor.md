@@ -42,47 +42,56 @@ The LED will blink if an object comes closer than **10 cm**, based on the sensor
 ## Source Code
 
 ```cpp
-long duration;
-float distance;
+// Define pins using 'const' to prevent accidental changes
+const int trigPin = 9; 
+const int echoPin = 10; 
+const int ledPin = 3; 
 
-int trigPin = 9;
-int echoPin = 10;
-int ledPin = 3;
+// Variables for duration and distance
+long duration; 
+float distance; 
 
-void setup() {
-  pinMode(trigPin, OUTPUT);
-  pinMode(echoPin, INPUT);
-  pinMode(ledPin, OUTPUT);
-  Serial.begin(9600);
+void setup() { 
+  pinMode(trigPin, OUTPUT); 
+  pinMode(echoPin, INPUT); 
+  pinMode(ledPin, OUTPUT); 
+  Serial.begin(9600); 
+} 
+
+void loop() { 
+  // 1. Clear the trigPin by setting it LOW
+  digitalWrite(trigPin, LOW); 
+  delayMicroseconds(2); 
+  
+  // 2. Send the 10-microsecond high pulse
+  digitalWrite(trigPin, HIGH); 
+  delayMicroseconds(10); 
+  digitalWrite(trigPin, LOW); 
+  
+  // 3. Read the echo pulse
+  duration = pulseIn(echoPin, HIGH); 
+  
+  // 4. Calculate the distance in cm (Speed of sound ~0.034 cm/us)
+  distance = duration * 0.034 / 2; 
+  
+  // 5. Print results to the Serial Monitor with "cm"
+  Serial.print("Duration: "); 
+  Serial.print(duration); 
+  Serial.print(" | Distance: "); 
+  Serial.print(distance); 
+  Serial.println(" cm"); // Added "cm" and new line
+
+  // 6. LED logic: Flash if an object is closer than 10 cm
+  if(distance < 10) { 
+    digitalWrite(ledPin, HIGH); 
+    delay(200); 
+    digitalWrite(ledPin, LOW); 
+    delay(200); 
+  } else { 
+    digitalWrite(ledPin, LOW); 
+  } 
 }
 
-void loop() {
-  digitalWrite(trigPin, LOW);
-  delayMicroseconds(2);
-
-  digitalWrite(trigPin, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(trigPin, LOW);
-
-  duration = pulseIn(echoPin, HIGH);
-
-  distance = duration * 0.034 / 2;
-
-  if(distance < 10) {
-    Serial.print("Duration: ");
-    Serial.print(duration);
-    Serial.print("  Distance: ");
-    Serial.println(distance);
-
-    digitalWrite(ledPin, HIGH);
-    delay(200);
-    digitalWrite(ledPin, LOW);
-    delay(200);
-  }
-  else {
-    digitalWrite(ledPin, LOW);
-  }
-}
 
 ```
 
