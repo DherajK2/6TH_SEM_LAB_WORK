@@ -41,7 +41,7 @@ char ssid[] = "Your Wifi Name";
 char pass[] = "Your Password";
 
 // ThingSpeak
-String apiKey = "VJTEU1ILB8V2RD34";
+String apiKey = "Your Write API KEY";
 const char* server = "api.thingspeak.com";
 
 // DHT setup
