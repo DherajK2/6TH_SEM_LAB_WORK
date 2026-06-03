@@ -1,0 +1,6 @@
+
+## Disclaimer
+
+These notes are intended for educational and revision purposes while studying the Coursera course **Foundations of Distributed Database Systems** offered by **Johns Hopkins University**.
+
+Please use these notes responsibly and adhere to Coursera's Honor Code.
